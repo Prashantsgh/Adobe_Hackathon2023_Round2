@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const PORT = 8080;          // Port No
-const {createResume} = require('./createResume');       // MiddleWare Function for Resume Generation
+const {createResume} = require('./Controller/createResume');       // MiddleWare Function for Resume Generation
 const cors = require('cors');
 
 // Creates an Express Application and sets its properties
