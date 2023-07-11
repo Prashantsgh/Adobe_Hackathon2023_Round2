@@ -1,0 +1,46 @@
+#add-education, #add-experience, #add-achievement{
+    width: 50px;
+    padding: 2px;
+    color: black;
+    background-color: rgb(198, 198, 198);
+    border-color: rgb(120, 127, 129);
+    border-width: 2px;
+    box-shadow: 0px 0px 5px gray;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.education, .experience, .achievement{
+    margin: 10px 10px;
+    margin-bottom: 35px;
+    padding: 5px;
+    background-color: rgb(126, 126, 126);
+    box-shadow: 0px 0px 20px rgb(110, 110, 110);
+    position: relative;
+}
+
+#school-name, #company-name, #field{
+    width: 280px;
+}
+#passing-year, #passing-year{
+    width: 180px;
+}
+
+#awards{
+    width: 80%;
+}
+
+#delete{
+    color: #d90429;
+    width: fit-content;
+    height: 30px;
+    padding-top: 15px;
+    background-color: rgba(134, 134, 134, 0.238);
+    position: absolute;
+    top: -15px;
+    left: 90%;
+}
+
+#delete:hover{
+    cursor: pointer;
+}

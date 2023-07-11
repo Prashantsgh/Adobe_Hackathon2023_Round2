@@ -1,0 +1,13 @@
+#first-name, #last-name{
+    width: 200px;
+}
+
+#email{
+    width: 380px;
+}
+#phone-number{
+    width: 315px;
+}
+#linkedin-url{
+    width: 360px;
+}

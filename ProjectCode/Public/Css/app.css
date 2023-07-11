@@ -1,0 +1,134 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #e3e8c47b;
+}
+
+h1{
+    background-color: #0a5177;
+    color:white;
+    margin: 10px auto;
+    padding: 5px 15px;
+    width: fit-content;
+    block-size: fit-content;
+    border-radius: 5px;
+
+    font-size: 50px;
+    font-weight: 500;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(129, 123, 135, 0.35),
+                 3px 4px 4px rgba(115, 109, 122, 0.3),
+                 4px 6px 4px rgba(115, 109, 122, 0.25),
+                 5px 8px 4px rgba(115, 109, 122, 0.15);
+    
+}
+
+legend{
+    padding:0px;
+    color:black;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+
+label{
+    font-weight: 500;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+fieldset{
+    height: 100%;
+    border: 3px solid rgb(227, 227, 227);
+    border-radius: 3px;
+    padding: 5px 2px;
+}
+
+.details{
+    width: min(800px,90%);
+    margin: 20px auto;
+    border-bottom: 3px solid gray;
+    border-top: 3px solid gray;
+    border-radius: 25px;
+    box-shadow: 0px 0px 1px rgb(155, 160, 163);
+    padding-bottom: 10px;
+}
+
+#container{
+    width: 100%;
+    margin: 8px auto;
+}
+
+#next, #prev{
+    margin: 7px 20px 0px 20px;
+    width: 100px;
+    background-color: #003554;
+    color: white;
+    border: 1px solid rgba(172, 172, 172, 0.777);
+    box-shadow: 2px 2px 2px gray;
+
+    font-size: larger;
+    font-weight: 600;
+}
+
+#submit{
+    width: fit-content;
+    background-color: #0077b6;
+    font-size: larger;
+    font-weight: 600;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 65px auto;
+}
+
+.element-group{
+    min-height: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px rgba(154, 147, 161, 0.35),
+                0px 0px 8px rgba(154, 147, 161, 0.3),
+                0px 0px 10px rgba(154, 147, 161, 0.25),
+                0px 0px 12px rgba(154, 147, 161, 0.15);
+    background-color: #adb5bd;
+}
+
+.form-control{
+    margin: 0px 10px;
+    display: inline-block;
+}
+
+.form-group{
+    margin: 10px;
+    display: inline-block;
+    width: fit-content;
+}
+
+.flex-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.invisible-component{
+    display: none;
+}
+
+.invisible-button{
+    visibility: hidden;
+}
+
+#loader{
+    position: fixed;
+    left: 45vw;
+    top: 40vw;
+    height: 80px;
+    width: 80px;
+}
