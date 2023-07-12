@@ -30,7 +30,7 @@
     width: 80%;
 }
 
-#delete{
+.delete{
     color: #d90429;
     width: fit-content;
     height: 30px;
@@ -41,6 +41,6 @@
     left: 90%;
 }
 
-#delete:hover{
+.delete:hover{
     cursor: pointer;
 }

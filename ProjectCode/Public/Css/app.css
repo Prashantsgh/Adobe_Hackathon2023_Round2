@@ -128,7 +128,7 @@ fieldset{
 #loader{
     position: fixed;
     left: 45vw;
-    top: 40vw;
+    top: 45vh;
     height: 80px;
     width: 80px;
 }

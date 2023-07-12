@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const PORT = 8080;          // Port No
 const {createResume} = require('./Controller/createResume');       // MiddleWare Function for Resume Generation
 const cors = require('cors');
 
@@ -20,7 +19,4 @@ app.get('/',(req,res)=>{
 // Endpoint for creating and sending Resume
 app.post('/resume',createResume);
 
-
-app.listen(PORT, ()=>{
-    console.log(`Server Listening At Port: ${PORT}`);
-})
+module.exports = app;
