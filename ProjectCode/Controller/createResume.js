@@ -17,11 +17,13 @@ const credentials =  PDFServicesSdk.Credentials
 // Create an ExecutionContext using credentials
 const executionContext = PDFServicesSdk.ExecutionContext.create(credentials);
 
+let activeReqCnt = 0,currReqCnt=0;      //For Naming The Output Files uniquely.
+
 // Middleware function to Generate Resume and Send Back Response
 module.exports.createResume = function createResume(req,res){
 
     // Verify the request body format and send response if it it not valid.
-    let isReqValid = verifyRequest(req.body);
+    let isReqValid = verifyRequest(req);
     if(isReqValid===false){
         return res.status(400).send({Description: "Bad Request"});
     }
@@ -34,7 +36,11 @@ module.exports.createResume = function createResume(req,res){
     }
 
     const INPUT = `./ResumeTemplates/Template${template_id}.docx`;      // Path to Docx Format of the Template.
-    const OUTPUT = path.join(__dirname,"../TemporaryResumes","generatedResume.pdf");                             // Path to store the generated Output Resume File.
+    if(activeReqCnt===0){
+        currReqCnt=0;                   // Reset the value of current output file naming variable.
+    }
+    const OUTPUT = path.join(__dirname,"../TemporaryResumes",`generatedResume${currReqCnt++}.pdf`);        // Path to store the generated Output Resume File.
+    activeReqCnt++;
 
     // If our output already exists, remove it so we can run the application again.
     if(fs.existsSync(OUTPUT)) fs.unlinkSync(OUTPUT);
@@ -62,7 +68,14 @@ module.exports.createResume = function createResume(req,res){
     .then(()=>{
         // On Successful generation of Resume, Create the Response and Send it.
         res.setHeader("Content-type", "application/pdf");
-        return res.status(200).sendFile(OUTPUT);
+        activeReqCnt--;
+        return res.status(200).sendFile(OUTPUT, err => {
+            if (err) {
+                console.log(err);
+                res.sendStatus(500);
+            }
+            if(fs.existsSync(OUTPUT)) fs.unlinkSync(OUTPUT);
+        });
     })
     .catch(err => {
         if(err instanceof PDFServicesSdk.Error.ServiceApiError
@@ -72,7 +85,8 @@ module.exports.createResume = function createResume(req,res){
             console.log('Exception encountered while executing operation', err);
         }
 
-        // Response for Error During Resume Generation Process
+        activeReqCnt--;
+        // Response for Error During Resume Generation Process.
         return res.status(500).send({Description: "Internal Server Error"});
     });
 
