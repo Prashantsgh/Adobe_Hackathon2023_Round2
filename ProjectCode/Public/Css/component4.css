@@ -1,6 +1,7 @@
 #skills{
     width:350px;
     margin: 2px 25px 2px 10px;
+    transition: transform 500ms;
 }
 
 .skill{
@@ -14,10 +15,12 @@
     font-size: 18px;
     font-weight: 400;
     font-family: Arial, Helvetica, sans-serif;
+    transition: transform 500ms;
 }
 
 .skill:hover{
-    /* cursor: pointer; */
+    transform: scale(1.1);
+    cursor: default;
 }
 
 #show-skills{
@@ -34,7 +37,7 @@
     font-size: 18px;
     font-weight: 400;
     margin-top: 2px;
-    box-shadow: 0px 0px 5px gray;
+    box-shadow: 0px 0px 5px 1px gray;
 }
 
 .delete-skill{
@@ -49,5 +52,5 @@
 }
 
 .delete-skill:hover{
-    cursor: pointer;;
+    cursor: pointer;
 }

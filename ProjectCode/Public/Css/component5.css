@@ -5,7 +5,7 @@
     background-color: rgb(198, 198, 198);
     border-color: rgb(120, 127, 129);
     border-width: 2px;
-    box-shadow: 0px 0px 5px gray;
+    box-shadow: 0px 0px 5px 1px gray;
     font-size: 25px;
     font-weight: 500;
 }
@@ -21,13 +21,16 @@
 
 #school-name, #company-name, #field{
     width: 280px;
+    transition: transform 500ms;
 }
-#passing-year, #passing-year{
+#passing-year{
     width: 180px;
+    transition: transform 500ms;
 }
 
 #awards{
     width: 80%;
+    transition: transform 500ms;
 }
 
 .delete{
@@ -39,8 +42,10 @@
     position: absolute;
     top: -15px;
     left: 90%;
+    transition: transform 500ms;
 }
 
 .delete:hover{
     cursor: pointer;
+    transform: scale(1.1);
 }

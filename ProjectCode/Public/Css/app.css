@@ -3,13 +3,19 @@
     padding:0px;
     box-sizing: border-box;
 }
+html{
+    height: 100%;
+}
 
 body{
-    background-color: #e3e8c47b;
+    height: 100%;
+    background-image: linear-gradient(to bottom right, #ece7e3c1,#ccc0b6a8, #cbb8a8);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 h1{
-    background-color: #0a5177;
+    background-image: radial-gradient(919px at 1.7% 6.1%, rgb(41, 58, 76) 0%, rgb(40, 171, 226) 100.2%);
     color:white;
     margin: 10px auto;
     padding: 5px 15px;
@@ -24,6 +30,7 @@ h1{
                  3px 4px 4px rgba(115, 109, 122, 0.3),
                  4px 6px 4px rgba(115, 109, 122, 0.25),
                  5px 8px 4px rgba(115, 109, 122, 0.15);
+    box-shadow: 0px 0px 2px 2px lightgrey;
     
 }
 
@@ -50,14 +57,20 @@ fieldset{
     padding: 5px 2px;
 }
 
+input:focus{
+    transform: scale(1.01);
+}
+
 .details{
     width: min(800px,90%);
     margin: 20px auto;
     border-bottom: 3px solid gray;
     border-top: 3px solid gray;
     border-radius: 25px;
-    box-shadow: 0px 0px 1px rgb(155, 160, 163);
+    box-shadow: 0px 0px 1px 1px rgb(155, 160, 163);
     padding-bottom: 10px;
+    background: rgba(255, 255, 255, 0.056);
+    backdrop-filter: blur(5px);
 }
 
 #container{
@@ -71,10 +84,16 @@ fieldset{
     background-color: #003554;
     color: white;
     border: 1px solid rgba(172, 172, 172, 0.777);
-    box-shadow: 2px 2px 2px gray;
+    box-shadow: 1px 1px 2px 1px gray;
 
     font-size: larger;
     font-weight: 600;
+
+    transition: transform 100ms ease-in;
+}
+
+#prev{
+    box-shadow: -1px 1px 2px 1px gray;
 }
 
 #submit{
@@ -86,17 +105,24 @@ fieldset{
     left: 0;
     right: 0;
     margin: 65px auto;
+    box-shadow: 0px 0px 2px 1px rgb(81, 97, 112);
+    transition: transform 100ms ease-in;
+}
+
+#next:hover, #submit:hover, #prev:hover{
+    transform: scale(1.02);
 }
 
 .element-group{
-    min-height: 400px;
+    min-height: 420px;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 6px rgba(154, 147, 161, 0.35),
-                0px 0px 8px rgba(154, 147, 161, 0.3),
-                0px 0px 10px rgba(154, 147, 161, 0.25),
-                0px 0px 12px rgba(154, 147, 161, 0.15);
-    background-color: #adb5bd;
+    box-shadow: 0px 0px 6px 2px rgba(154, 147, 161, 0.35),
+                0px 0px 8px 2px rgba(154, 147, 161, 0.3),
+                0px 0px 10px 2px rgba(154, 147, 161, 0.25),
+                0px 0px 12px 2px rgba(154, 147, 161, 0.15);
+    background-image: linear-gradient(to right, #96a1a9 0%, #6b777b 100%);
+    background-blend-mode:lighten;
 }
 
 .form-control{

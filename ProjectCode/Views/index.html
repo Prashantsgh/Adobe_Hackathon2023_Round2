@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/Css/component3.css">
     <link rel="stylesheet" href="/Css/component4.css">
     <link rel="stylesheet" href="/Css/component5.css">
+    <link rel="stylesheet" href="/Css/progressBar.css">
 </head>
 <body>
     
@@ -19,6 +20,18 @@
     </header>
 
     <main>
+        <div style="width: min(90vw,800px); margin: 0px auto;"">
+            <div class="form-header d-flex mb-4">
+                <span class="stepIndicator">Select Template</span>
+                <span class="stepIndicator">Personal Details</span>
+                <span class="stepIndicator">Job Details</span>
+                <span class="stepIndicator">Skills</span>
+                <span class="stepIndicator">Education</span>
+                <span class="stepIndicator">Experience</span>
+                <span class="stepIndicator">Achievements</span>
+            </div>
+        </div>
+
         <div class="details row">
             <div class="mx-auto">
 
@@ -45,14 +58,13 @@
                         Next
                     </button>
                 </div>
-
-                <div class="invisible-component spinner-border text-primary" id="loader" role="status">
-                    <span class="sr-only"></span>
-                </div>
-                
             </div>
         </div>
     </main>
+
+    <div class="invisible-component spinner-border text-primary" id="loader" role="status">
+        <span class="sr-only"></span>
+    </div>
 
     <div id="adobe-dc-view"></div>
     <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>

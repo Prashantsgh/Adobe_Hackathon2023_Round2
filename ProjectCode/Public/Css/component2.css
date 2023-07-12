@@ -1,13 +1,19 @@
 #first-name, #last-name{
     width: 200px;
+    transition: transform 500ms;
 }
 
 #email{
     width: 380px;
+    transition: transform 500ms;
 }
+
 #phone-number{
     width: 315px;
+    transition: transform 500ms;
 }
+
 #linkedin-url{
     width: 360px;
+    transition: transform 500ms;
 }

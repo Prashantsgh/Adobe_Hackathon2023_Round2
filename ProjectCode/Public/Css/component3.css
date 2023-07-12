@@ -1,3 +1,4 @@
 #job-title{
+    transition: transform 500ms;
     width: 400px;
 }
