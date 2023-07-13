@@ -1,24 +1,30 @@
 # Adobe_Hackathon2023_Round2
+# Resume Builder
 
-Requirements: Recent Version of Node JS and any Browser.
+### The Repository Contains the Submission Work For Round 2 of Adobe PapyrusNebulae 2023 Document Cloud Hackathon.
+### Must go through the documentation to understand the amazing project work.
 
-Initial Setup:
-Step 1:- Change Directory to the Project Code in the Terminal and Install all the Node Modules using "npm install".
+## Requirements:
+Recent Version of Node JS and Browser.
 
-Step 2:- To Change the credentials, Go to the Credentials Folder -> secret.js File and change the Client ID and Secret Key there. Also, Replace the credentials.json file(Optional).
+## Initial Setup:
+### Step 1:-
+Change Directory to the Project Code using the Terminal and Install all the Node Modules using **`npm install`** command.
 
-Step 3:- Run the "npm start" or "node ./server.js" Command to run the application.
+### Step 2:-
+To Change the **credentials**, Go to the `Credentials Folder -> secret.js` File and change the Client ID and Secret Key there. Also, Replace the credentials.json file(Optional).
 
+### Step 3:-
+Run the **`npm start`** or **`node ./server.js`** command to run the application. To run the unit tests, use **`npm run test`** command.
 
-The API Listens for requests on two Routes:
+The API is accessible at `localhost:8080`. 
 
-  a. GET /   -> It Sends the ResumeBuilder UI HTML File as a response. No Request Headers required.
+### The API Listens for requests on two Endpoints:
+
+  **a. GET /   ->** It Sends the **ResumeBuilder UI** HTML File as a response. No Request Header is required. The users can directly fill the Form in the UI and then generate Resumes. The Interface is user friendly.
   
-  b. POST /resume    -> It sends the created RESUME in PDF Format as a response. 
-  
-   The Request Object is strictly verified before Generation. Request Object must be in the shared Format (All Fields Present, Contain Non Empty Values in Right       Format, No Extra Fields Present and Headers properly included).
-   To add Hyperlinks to the text, wrap the text as:  <a href=\"URL\">Text</a>
+  **b. POST /resume    ->** It sends the created **RESUME in PDF** Format as a response. The Request object must be in the shared format as it is strictly verified before Generation. The **Hyperlinks must be pre formatted** in the resume object. ***Refer DOCUMENTATION.***
     
-  On Successful generation of the RESUME, The headers and Resume(PDF) are sent. In case of Error, A Error Code( 400, 401, 404, 500) is sent with a DESCRIPTION          Message for the same as shared in the API Description.
+On Successful generation of the RESUME, The headers and Resume(PDF) are sent. In case of Error, An Error Code( 400, 401, 404, 500) is sent with a DESCRIPTION       Message for the same as shared in the API Description.
 
 
