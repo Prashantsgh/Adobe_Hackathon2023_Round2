@@ -155,8 +155,16 @@ input:focus{
 
 #loader{
     position: fixed;
-    left: 45vw;
+    left: 35vw;
     top: 45vh;
-    height: 80px;
-    width: 80px;
+    width: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 650;
+    padding: 8px;
+    background-color: rgba(55, 55, 55, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(25px);
 }

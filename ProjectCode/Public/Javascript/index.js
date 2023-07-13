@@ -140,7 +140,7 @@ $('#submit').click(async ()=>{
     let formData = getFormData();
     // console.log(formData);
 
-    $('#loader').toggleClass('invisible-component');
+    $('#loader').removeAttr("hidden");
     $(':button').prop('disabled', true);
     $(':input').prop('disabled', true);
     jQuery('main').css('opacity', '0.6');
@@ -164,7 +164,7 @@ $('#submit').click(async ()=>{
             content:{promise: Promise.resolve(response.arrayBuffer())},
             metaData:{fileName: "Resume.pdf"}
         },previewConfig);
-        $('#loader').toggleClass('invisible-component');
+        $('#loader').attr("hidden", true);
         $(':button').prop('disabled', false);
         $(':input').prop('disabled', false);
         $('main').css('opacity', '1');
@@ -175,7 +175,7 @@ $('#submit').click(async ()=>{
         alert(err);
         console.error("Error:" + err);
         
-        $('#loader').toggleClass('invisible-component');
+        $('#loader').attr("hidden", true);
         $(':button').prop('disabled', false);
         $(':input').prop('disabled', false);
         $('main').css('opacity', '1');

@@ -42,6 +42,7 @@
     top: -15px;
     left: 90%;
     transition: transform 100ms;
+    opacity: 0.9;
 }
 
 .delete:hover{

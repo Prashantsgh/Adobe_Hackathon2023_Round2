@@ -19,7 +19,7 @@
 }
 
 .skill:hover{
-    transform: scale(1.1);
+    transform: scale(1.02);
     cursor: default;
 }
 
@@ -37,7 +37,8 @@
     font-size: 18px;
     font-weight: 400;
     margin-top: 2px;
-    box-shadow: 0px 0px 5px 1px gray;
+    box-shadow: 0px 0px 5px 1px rgb(53, 53, 53);
+    background-color: rgb(103, 103, 103);
 }
 
 .delete-skill{

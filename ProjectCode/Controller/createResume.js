@@ -72,7 +72,7 @@ module.exports.createResume = function createResume(req,res){
         return res.status(200).sendFile(OUTPUT, err => {
             if (err) {
                 console.log(err);
-                res.sendStatus(500);
+                return res.status(500).send({Description: "Internal Server Error"});
             }
             if(fs.existsSync(OUTPUT)) fs.unlinkSync(OUTPUT);
         });
