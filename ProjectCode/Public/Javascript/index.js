@@ -1,5 +1,6 @@
 let template_id='a';
 let component = 1;
+// Configuration for Adobe PDF Embed API
 const previewConfig = {
     embedMode: "LIGHT_BOX",
     defaultViewMode: "FIT_PAGE",
@@ -13,6 +14,7 @@ const previewConfig = {
     showBookmarks: false
 }
 
+// Function to create JSON string from the form.
 function getFormData(){
     let formData = {};
     formData.template_id = (template_id.charCodeAt(0)-'a'.charCodeAt(0)+1).toString();
@@ -69,18 +71,19 @@ function getFormData(){
     return JSON.stringify(formData);
 }
 
-fixStepIndicator(component-1);
 // Function to Fill the Step Bar
 function fixStepIndicator(n) {
-    // This function removes the "active" class of all steps...
+    //removes the "active" class of all steps
     var i, x = document.getElementsByClassName("stepIndicator");
     for (i = 0; i < x.length; i++) {
         x[i].className = x[i].className.replace(" active1", "");
     }
-    //... and adds the "active" class on the current step:
+    //adds the "active" class on the current step:
     x[n].className += " active1";
 }
+fixStepIndicator(component-1);
 
+// Event Listener on click of next button
 $('#next').click(()=>{
 
     if(component==4){
@@ -110,6 +113,7 @@ $('#next').click(()=>{
     fixStepIndicator(component-1);
 });
 
+// Event Listener on click of previous button
 $('#prev').click(()=>{
     $(`#component${component}`).toggleClass("invisible-component");
     component-=1;
@@ -124,6 +128,8 @@ $('#prev').click(()=>{
     fixStepIndicator(component-1);
 });
 
+
+// Event listener on click of submit button
 $('#submit').click(async ()=>{
     if ($(`#form${component}`)[0].checkValidity()===false) {
         $(`#form${component}`)[0].reportValidity();
@@ -139,6 +145,7 @@ $('#submit').click(async ()=>{
     $(':input').prop('disabled', true);
     jQuery('main').css('opacity', '0.6');
 
+    // Fetch request to the API
     await fetch(url, {
         method: "POST",
         headers: {
@@ -147,7 +154,11 @@ $('#submit').click(async ()=>{
         },
         body:formData
     })
-    .then((response)=>{
+    .then(async (response)=>{
+        if(response.status != 200){
+            response = await response.json();
+            throw response.Description;
+        }
         let adobeDCView = new AdobeDC.View({clientId: "34c09118f5434dfb9c47a459a2da0796", divId: "adobe-dc-view"});
         adobeDCView.previewFile({
             content:{promise: Promise.resolve(response.arrayBuffer())},
@@ -160,6 +171,8 @@ $('#submit').click(async ()=>{
 
     })
     .catch(function (err) {
+        // Showing Error to the user
+        alert(err);
         console.error("Error:" + err);
         
         $('#loader').toggleClass('invisible-component');

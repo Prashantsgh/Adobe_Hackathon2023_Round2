@@ -64,7 +64,8 @@ input:focus{
 .details{
     width: min(800px,90%);
     margin: 20px auto;
-    border-bottom: 3px solid gray;
+
+    border-bottom: 4px solid gray;
     border-top: 3px solid gray;
     border-radius: 25px;
     box-shadow: 0px 0px 1px 1px rgb(155, 160, 163);
@@ -114,6 +115,7 @@ input:focus{
 }
 
 .element-group{
+    margin-top: 0px;
     min-height: 420px;
     padding: 20px;
     border-radius: 10px;

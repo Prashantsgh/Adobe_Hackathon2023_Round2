@@ -1,20 +1,28 @@
 .form-header {
-    gap: 5px;
+    gap: 10px;
     text-align: center;
-    font-size: .9em;
+    font-weight: 500;
+    color: gray;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
 }
+
 .stepIndicator {
     position: relative;
     flex: 1;
-    padding-bottom: 30px;
+    padding: 15px;
 }
+
 .stepIndicator.active1 {
     font-weight: 600;
+    color:rgb(41, 41, 41);
 }
+
 .form-header .stepIndicator.finish {
-    font-weight: 600;
+    font-weight: 650;
     color: #009688;
 }
+
 .stepIndicator::before {
     content: "";
     position: absolute;
@@ -24,13 +32,16 @@
     z-index: 9;
     width: 20px;
     height: 20px;
-    background-color: #d5efed;
+    background-color: #b7d4d1;
     border-radius: 50%;
     border: 3px solid #ecf5f4;
+    box-shadow: 0px 0px 3px 1px gray;
 }
+
 .stepIndicator.active1::before {
-    background-color: #a7ede8;
-    border: 3px solid #d5f9f6;
+    background-color: #4da59f;
+    border: 3px solid #add2cf;
+    box-shadow: 0px 0px 5px 2px gray;
 }
 .stepIndicator.finish::before {
     background-color: #009688;
@@ -46,7 +57,7 @@
     background-color: #f3f3f3;
 }
 .stepIndicator.active1::after {
-    background-color: #a7ede8;
+    background-image: linear-gradient(to right, #60b3ad, #8cd5d0);
 }
 .stepIndicator.finish::after {
     background-color: #009688;
