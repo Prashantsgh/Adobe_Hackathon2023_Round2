@@ -18,18 +18,18 @@ module.exports.verifyRequest = function verifyRequest(req){
     const data = req.body;
     
     // Check if all the required fields are present.
-    validElements.forEach((element)=>{
+    for( let element of validElements){
         if(data[element]===undefined){
             return false;
         }
-    });
+    };
     // Check if there are no extra fields present in the Request Body.
     if(keyCount(data)!=validElements.length){
         return false;
     }
 
     // Check if template_id is a non empty string
-    if(typeof(data.template_id)!="string" || data.template_id===""){
+    if(typeof(data.template_id)!="string" || !data.template_id.trim()){
         return false;
     }
 
@@ -37,18 +37,19 @@ module.exports.verifyRequest = function verifyRequest(req){
     if(typeof(data.personal_information)!="object" || keyCount(data.personal_information)!=validPersonalInfo.length){
         return false;
     }
-    validPersonalInfo.forEach((element)=>{
-        if(typeof(data.personal_information[element])!="string" || data.personal_information[element]===""){
+    for(let element of validPersonalInfo){
+        // Check if the info is not a string or it only contains spaces.
+        if(typeof(data.personal_information[element])!="string" || !data.personal_information[element].trim().length){
             return false;
         }
-    });
+    };
 
 
     // Check Job Title and Career Object.
-    if(typeof(data.job_title)!="string" || data.job_title===""){
+    if(typeof(data.job_title)!="string" || !data.job_title.trim()){
         return false;
     }
-    if(typeof(data.career_objective)!="string" || data.career_objective===""){
+    if(typeof(data.career_objective)!="string" || !data.career_objective.trim()){
         return false;
     }
 
@@ -58,11 +59,11 @@ module.exports.verifyRequest = function verifyRequest(req){
         return false;
     }
     // Check if every element of Skills is a non empty string.
-    data.skills.forEach((skill)=>{
-        if(typeof(skill)!="string" || skill.length===0){
+    for( let skill of data.skills){
+        if(typeof(skill)!="string" || !skill.trim()){
             return false;
         }
-    });
+    };
 
 
     // Check if education is an Array and non empty.
@@ -70,16 +71,16 @@ module.exports.verifyRequest = function verifyRequest(req){
         return false;
     }
     // Check if every element of Education is an Object and contains all the required fields.
-    data.education.forEach((edu)=>{
+    for( let edu of data.education){
         if(typeof(edu)!="object" || keyCount(edu)!=validEdu.length){
             return false;
         }
-        validEdu.forEach((element)=>{
-            if(typeof(edu[element])!="string" || edu[element]===""){
+        for( let element of validEdu){
+            if(typeof(edu[element])!="string" || !edu[element].trim()){
                 return false;
             }
-        });
-    });
+        };
+    };
 
 
     // Check if experience is an Array and non empty.
@@ -87,16 +88,16 @@ module.exports.verifyRequest = function verifyRequest(req){
         return false;
     }
     // Check if every element of Experience is an Object and contains all the required fields.
-    data.experience.forEach((exp)=>{
+    for( let exp of data.experience){
         if(typeof(exp)!="object" || keyCount(exp)!=validExp.length){
             return false;
         }
-        validExp.forEach((element)=>{
-            if(typeof(exp[element])!="string" || exp[element]===""){
+        for( let element of validExp){
+            if(typeof(exp[element])!="string" || !exp[element].trim()){
                 return false;
             }
-        });
-    });
+        };
+    };
     
 
     // Check if achievements is an Array and non empty.
@@ -104,16 +105,16 @@ module.exports.verifyRequest = function verifyRequest(req){
         return false;
     }
     // Check if every element of Experience is an Object and contains all the required fields.
-    data.achievements.forEach((ach)=>{
+    for( let ach of data.achievements){
         if(typeof(ach)!="object" || keyCount(ach)!=validAch.length){
             return false;
         }
-        validAch.forEach((element)=>{
-            if(typeof(ach[element])!="string" || ach[element]===""){
+        for( let element of validAch){
+            if(typeof(ach[element])!="string" || !ach[element].trim()){
                 return false;
             }
-        });
-    });
+        };
+    };
 
     return true;    // return true if all constraints satisfied
 }

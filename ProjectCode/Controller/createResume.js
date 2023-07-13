@@ -30,7 +30,7 @@ module.exports.createResume = function createResume(req,res){
 
     // Check if the template ID is valid else return an Error
     const valid_templateID = ["1", "2", "3"];
-    const template_id = req.body.template_id;                           // Template to be used.
+    const template_id = req.body.template_id.trim();                           // Template to be used.
     if(valid_templateID.includes(template_id)===false){
         return res.status(404).send({Description: "Template not found"});
     }
@@ -87,7 +87,18 @@ module.exports.createResume = function createResume(req,res){
 
         activeReqCnt--;
         // Response for Error During Resume Generation Process.
-        return res.status(500).send({Description: "Internal Server Error"});
+        if(err.statusCode==400){
+            return res.status(400).send({Description: "Bad Request"});
+        }
+        else if(err.statusCode==401){
+            return res.status(401).send({Description: "Unauthorized"});
+        }
+        else if(err.statusCode==404){
+            return res.status(404).send({Description: "Template not found"});
+        }
+        else{
+            return res.status(500).send({Description: "Internal Server Error"});
+        }
     });
 
 };
