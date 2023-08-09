@@ -136,7 +136,7 @@ $('#submit').click(async ()=>{
         return;
     }
 
-    const url = "http://localhost:8080/resume";
+    const url = "https://resume-builder-2cs0.onrender.com";
     let formData = getFormData();
     // console.log(formData);
 
